@@ -14,19 +14,12 @@ enum Tab: String, CaseIterable {
     case person
 }
 
-enum TabLabels: String {
-    case house = "Inicio"
-    case heart = "Favoritos"
-    case cart = "Carrinho"
-    case person = "Perfil"
-}
-
 struct TabBar: View {
     @Binding var selectedTab: Tab
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(coffeeShopSearch: "")
             .tabItem {
                 Image(systemName: "house")
                 Text("Inicio")
@@ -53,7 +46,7 @@ struct TabBar: View {
                 Text("Perfil")
             }
             .tag(3)
-        }
+        }.tint(.brown)
     }
 }
 

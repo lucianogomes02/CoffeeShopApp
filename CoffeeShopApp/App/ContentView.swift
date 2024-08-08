@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .house
+    @State private var coffeeShopSearch: String = ""
     
     var body: some View {
         TabBar(selectedTab: $selectedTab)
