@@ -11,7 +11,7 @@ struct HomeView: View {
     @State var coffeeShopSearch: String = ""
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 0) {
             HStack {
                 Image(systemName: "mappin.and.ellipse.circle")
                     .imageScale(.large)
@@ -19,7 +19,7 @@ struct HomeView: View {
                 Text("Rua Teste, 123 - Vila Teste - São Paulo, Brasil")
                     .font(.headline)
                     .fontWidth(Font.Width.condensed)
-            }.frame(alignment: .center).padding()
+            }.frame(width: .infinity).padding()
             
             TextField("Buscar cafeterias...", text: $coffeeShopSearch)
                 .onSubmit {
@@ -32,18 +32,16 @@ struct HomeView: View {
                         .stroke(lineWidth: 1)
                 )
                 .foregroundColor(.brown)
-                .frame(width: 350, height: 40)
+                .frame(width: .infinity, height: 40)
                 .padding()
             
-            Text("Categorias")
-                .font(.title)
-                .frame(alignment: .topLeading)
-                
+            HStack {
+                Text("Categorias")
+                    .font(.title)
+                    .padding(.leading)
+            }
             
             Spacer().frame(width: nil, height: 550)
-            HStack {
-                
-            }
         }
     }
 }
