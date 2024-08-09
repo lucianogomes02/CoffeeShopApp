@@ -15,6 +15,7 @@
 		BA0B51C12C6451A9000D4AB1 /* CoffeeShopAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B51C02C6451A9000D4AB1 /* CoffeeShopAppUITests.swift */; };
 		BA0B51C32C6451A9000D4AB1 /* CoffeeShopAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B51C22C6451A9000D4AB1 /* CoffeeShopAppUITestsLaunchTests.swift */; };
 		BA0B51D72C646B46000D4AB1 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B51D62C646B46000D4AB1 /* TabBar.swift */; };
+		BA8D00D42C65B0FE00FC5715 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D00D32C65B0FE00FC5715 /* OrdersView.swift */; };
 		BAF889D22C64923B005006B1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF889D12C64923B005006B1 /* HomeView.swift */; };
 		BAF889D42C649269005006B1 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF889D32C649269005006B1 /* FavoritesView.swift */; };
 		BAF889D62C64927B005006B1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF889D52C64927B005006B1 /* CartView.swift */; };
@@ -50,6 +51,7 @@
 		BA0B51C02C6451A9000D4AB1 /* CoffeeShopAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopAppUITests.swift; sourceTree = "<group>"; };
 		BA0B51C22C6451A9000D4AB1 /* CoffeeShopAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA0B51D62C646B46000D4AB1 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		BA8D00D32C65B0FE00FC5715 /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		BAF889D12C64923B005006B1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BAF889D32C649269005006B1 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		BAF889D52C64927B005006B1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				BAF889D32C649269005006B1 /* FavoritesView.swift */,
 				BAF889D52C64927B005006B1 /* CartView.swift */,
 				BAF889D72C6492AF005006B1 /* ProfileView.swift */,
+				BA8D00D32C65B0FE00FC5715 /* OrdersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				BA0B51D72C646B46000D4AB1 /* TabBar.swift in Sources */,
 				BAF889D22C64923B005006B1 /* HomeView.swift in Sources */,
 				BA0B51A82C6451A8000D4AB1 /* ContentView.swift in Sources */,
+				BA8D00D42C65B0FE00FC5715 /* OrdersView.swift in Sources */,
 				BAF889D82C6492AF005006B1 /* ProfileView.swift in Sources */,
 				BA0B51A62C6451A8000D4AB1 /* CoffeeShopApp.swift in Sources */,
 			);

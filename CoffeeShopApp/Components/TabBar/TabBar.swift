@@ -7,19 +7,10 @@
 
 import SwiftUI
 
-enum Tab: String, CaseIterable {
-    case house
-    case heart
-    case cart
-    case person
-}
-
 struct TabBar: View {
-    @Binding var selectedTab: Tab
-    
     var body: some View {
         TabView {
-            HomeView(coffeeShopSearch: "")
+            HomeView()
             .tabItem {
                 Image(systemName: "house")
                 Text("Inicio")
@@ -40,16 +31,23 @@ struct TabBar: View {
             }
             .tag(2)
             
+            OrdersView()
+            .tabItem {
+                Image(systemName: "newspaper")
+                Text("Pedidos")
+            }
+            .tag(3)
+            
             ProfileView()
             .tabItem {
                 Image(systemName: "person")
                 Text("Perfil")
             }
-            .tag(3)
+            .tag(4)
         }.tint(.brown)
     }
 }
 
 #Preview {
-    TabBar(selectedTab: .constant(.house))
+    TabBar()
 }
