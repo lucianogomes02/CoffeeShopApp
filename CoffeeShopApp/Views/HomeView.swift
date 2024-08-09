@@ -96,28 +96,32 @@ struct HomeView: View {
                 Text("Rua Teste, 123 - Vila Teste - São Paulo, Brasil")
                     .font(.headline)
                     .fontWidth(Font.Width.condensed)
-            }.frame(width: .infinity).padding()
+            }
+            .frame(width: .infinity)
+            .padding()
             
-            TextField("Busque o que você procura...", text: $coffeeShopSearch)
+            HStack(alignment: .top) {
+              Image(systemName: "magnifyingglass")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundStyle(.brown)
+              TextField("Busque o que você procura...", text: $coffeeShopSearch)
                 .onSubmit {
                     print($coffeeShopSearch) // TODO alterar
                 }
-                .padding(10)
-                .background(RoundedRectangle(cornerRadius: 20).fill(.windowBackground))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(lineWidth: 1)
-                )
-                .foregroundColor(.brown)
-                .frame(width: .infinity, height: 40)
-                .padding()
-            
-            HStack {
-                Text("Categorias")
-                    .font(.title)
-                    .padding(.leading)
             }
-            
+            .padding()
+            .overlay(
+              RoundedRectangle(cornerRadius: 50)
+                .stroke(Color.brown, lineWidth: 1.5)
+            )
+            .frame(width: .infinity, height: 40)
+            .padding()
+        
+            Text("Categorias")
+                .font(.title)
+                .padding()
+
             LazyHGrid(rows: [
                 GridItem(.fixed(100)),
                 GridItem(.fixed(100))
