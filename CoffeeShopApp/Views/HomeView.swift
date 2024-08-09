@@ -7,8 +7,16 @@
 
 import SwiftUI
 
+enum CategoriesIcons: String, CaseIterable {
+    case coffee = "mug.fill"
+    case desserts = "birthday.cake.fill"
+    case alcohol = "wineglass.fill"
+    case breakfast = "fork.knife.circle.fill"
+}
+
 struct HomeView: View {
     @State var coffeeShopSearch: String = ""
+    @State private var selectedCategory: CategoriesIcons?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -21,7 +29,7 @@ struct HomeView: View {
                     .fontWidth(Font.Width.condensed)
             }.frame(width: .infinity).padding()
             
-            TextField("Buscar cafeterias...", text: $coffeeShopSearch)
+            TextField("Busque o que você procura...", text: $coffeeShopSearch)
                 .onSubmit {
                     print($coffeeShopSearch) // TODO alterar
                 }
@@ -41,7 +49,34 @@ struct HomeView: View {
                     .padding(.leading)
             }
             
-            Spacer().frame(width: nil, height: 550)
+            ScrollView(.vertical, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(CategoriesIcons.allCases, id: \.rawValue) { category in
+                        Button(action: {
+                            selectedCategory = category
+                        }) {
+                            VStack {
+                                Image(systemName: category.rawValue)
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(selectedCategory == category ? .white : .brown)
+                            }
+                            .frame(width: 70, height: 70)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(selectedCategory == category ? Color.brown : Color.white)
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.brown, lineWidth: 2)
+                            )
+                            .padding(1)
+                        }
+                    }
+                }.padding()
+            }
+            
+            Spacer()
         }
     }
 }
