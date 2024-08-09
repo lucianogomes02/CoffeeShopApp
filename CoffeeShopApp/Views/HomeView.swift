@@ -62,6 +62,7 @@ struct HomeView: View {
             }
     }
     
+    @ViewBuilder
     private func categoryButton(category: Categories) -> some View {
             Button(action: {
                 selectedCategory = category
@@ -69,13 +70,13 @@ struct HomeView: View {
                 VStack {
                     Image(systemName: selectCategoryIcon(category: category.rawValue))
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 25, height: 25)
                         .foregroundColor(selectedCategory == category ? .white : .brown)
                     Text(selectCategoryLabel(category: category.rawValue))
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .foregroundStyle(selectedCategory == category ? .white : .brown)
                 }
-                .frame(width: 150, height: 100)
+                .frame(width: 150, height: 80)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .fill(selectedCategory == category ? Color.brown : Color.white)
@@ -84,8 +85,41 @@ struct HomeView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.brown, lineWidth: 2)
                 )
-            }.padding(8)
+            }.padding()
         }
+    
+    @ViewBuilder
+    private func productsList() -> some View {
+        ScrollView(showsIndicators: false) {
+            LazyVGrid(columns: [GridItem(.fixed(100))]) {
+                ForEach(productsMock) { product in
+                    VStack {
+                        Image(product.image)
+                            .resizable()
+                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .padding()
+                        
+                        Text(product.name)
+                            .frame(alignment: .top)
+                        Text(String(format: "%.2f", product.price))
+                            .frame(alignment: .top)
+                    }
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 24.0))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.brown, lineWidth: 2)
+                    )
+                }
+            }
+        }
+        
+        .background(Color.white)
+        .frame(alignment: .center)
+        .padding()
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -120,7 +154,7 @@ struct HomeView: View {
         
             Text("Categorias")
                 .font(.title)
-                .padding()
+                .padding(.leading)
 
             LazyHGrid(rows: [
                 GridItem(.fixed(100)),
@@ -131,7 +165,11 @@ struct HomeView: View {
                     }
                 }.padding()
             
-            Spacer()
+            Text("Produtos")
+                .font(.title)
+                .padding(.leading)
+            
+            productsList()
         }
     }
 }

@@ -16,6 +16,8 @@
 		BA0B51C32C6451A9000D4AB1 /* CoffeeShopAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B51C22C6451A9000D4AB1 /* CoffeeShopAppUITestsLaunchTests.swift */; };
 		BA0B51D72C646B46000D4AB1 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B51D62C646B46000D4AB1 /* TabBar.swift */; };
 		BA8D00D42C65B0FE00FC5715 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D00D32C65B0FE00FC5715 /* OrdersView.swift */; };
+		BA8D00D82C65BEE000FC5715 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D00D72C65BEE000FC5715 /* Product.swift */; };
+		BA8D00DA2C65BFDE00FC5715 /* ProductsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D00D92C65BFDE00FC5715 /* ProductsMock.swift */; };
 		BAF889D22C64923B005006B1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF889D12C64923B005006B1 /* HomeView.swift */; };
 		BAF889D42C649269005006B1 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF889D32C649269005006B1 /* FavoritesView.swift */; };
 		BAF889D62C64927B005006B1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF889D52C64927B005006B1 /* CartView.swift */; };
@@ -52,6 +54,8 @@
 		BA0B51C22C6451A9000D4AB1 /* CoffeeShopAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA0B51D62C646B46000D4AB1 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		BA8D00D32C65B0FE00FC5715 /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
+		BA8D00D72C65BEE000FC5715 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		BA8D00D92C65BFDE00FC5715 /* ProductsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsMock.swift; sourceTree = "<group>"; };
 		BAF889D12C64923B005006B1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BAF889D32C649269005006B1 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		BAF889D52C64927B005006B1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		BA0B51A42C6451A8000D4AB1 /* CoffeeShopApp */ = {
 			isa = PBXGroup;
 			children = (
+				BA8D00D52C65BEA800FC5715 /* Models */,
 				BAF889D02C64921D005006B1 /* Views */,
 				BA0B51D02C6464A1000D4AB1 /* Components */,
 				BA0B51CF2C6463F8000D4AB1 /* App */,
@@ -163,6 +168,23 @@
 				BA0B51D62C646B46000D4AB1 /* TabBar.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BA8D00D52C65BEA800FC5715 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D00D62C65BEB300FC5715 /* Products */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BA8D00D62C65BEB300FC5715 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D00D72C65BEE000FC5715 /* Product.swift */,
+				BA8D00D92C65BFDE00FC5715 /* ProductsMock.swift */,
+			);
+			path = Products;
 			sourceTree = "<group>";
 		};
 		BAF889D02C64921D005006B1 /* Views */ = {
@@ -309,10 +331,12 @@
 			files = (
 				BAF889D62C64927B005006B1 /* CartView.swift in Sources */,
 				BAF889D42C649269005006B1 /* FavoritesView.swift in Sources */,
+				BA8D00D82C65BEE000FC5715 /* Product.swift in Sources */,
 				BA0B51D72C646B46000D4AB1 /* TabBar.swift in Sources */,
 				BAF889D22C64923B005006B1 /* HomeView.swift in Sources */,
 				BA0B51A82C6451A8000D4AB1 /* ContentView.swift in Sources */,
 				BA8D00D42C65B0FE00FC5715 /* OrdersView.swift in Sources */,
+				BA8D00DA2C65BFDE00FC5715 /* ProductsMock.swift in Sources */,
 				BAF889D82C6492AF005006B1 /* ProfileView.swift in Sources */,
 				BA0B51A62C6451A8000D4AB1 /* CoffeeShopApp.swift in Sources */,
 			);
