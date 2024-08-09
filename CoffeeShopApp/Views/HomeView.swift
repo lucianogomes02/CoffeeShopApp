@@ -93,19 +93,33 @@ struct HomeView: View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: [GridItem(.fixed(100))]) {
                 ForEach(productsMock) { product in
-                    VStack {
+                    HStack {
                         Image(product.image)
                             .resizable()
                             .scaledToFit()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 200, height: 200)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 180, height: 100, alignment: .leading)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
                             .padding()
                         
-                        Text(product.name)
-                            .frame(alignment: .top)
-                        Text(String(format: "%.2f", product.price))
-                            .frame(alignment: .top)
+                        VStack {
+                            Text(product.name)
+                                .frame(alignment: .bottomLeading)
+                            
+                            Text("R$\(String(format: "%.2f", product.price))")
+                                .frame(alignment: .bottomLeading)
+                            
+                            Button(action: {}) {
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(.white)
+                                    .background(Color.brown)
+                                    .cornerRadius(20)
+                            }
+                        }.padding()
                     }
+                    .frame(width: 350, height: 150)
                     .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 24.0))
                     .overlay(
@@ -115,10 +129,9 @@ struct HomeView: View {
                 }
             }
         }
-        
         .background(Color.white)
-        .frame(alignment: .center)
-        .padding()
+        .frame(alignment: .leading)
+        .padding([.top, .bottom], 10)
     }
     
     var body: some View {
