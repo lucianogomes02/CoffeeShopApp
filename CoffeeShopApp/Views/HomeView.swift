@@ -144,7 +144,6 @@ struct HomeView: View {
                     .font(.headline)
                     .fontWidth(Font.Width.condensed)
             }
-            .frame(width: .infinity)
             .padding()
             
             HStack(alignment: .top) {
@@ -162,7 +161,6 @@ struct HomeView: View {
               RoundedRectangle(cornerRadius: 50)
                 .stroke(Color.brown, lineWidth: 1.5)
             )
-            .frame(width: .infinity, height: 40)
             .padding()
         
             Text("Categorias")

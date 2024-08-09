@@ -44,7 +44,7 @@ struct TabBar: View {
                 Text("Perfil")
             }
             .tag(4)
-        }.tint(.brown)
+        }.tint(.brown).preferredColorScheme(.light)
     }
 }
 
