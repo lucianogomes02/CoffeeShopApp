@@ -109,13 +109,23 @@ struct HomeView: View {
                             Text("R$\(String(format: "%.2f", product.price))")
                                 .frame(alignment: .bottomLeading)
                             
-                            Button(action: {}) {
-                                Image(systemName: "plus.circle")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                    .foregroundColor(.white)
-                                    .background(Color.brown)
-                                    .cornerRadius(20)
+                            HStack {
+                                Button(action: {}) {
+                                    Image(systemName: "plus.circle")
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(.white)
+                                        .background(Color.brown)
+                                        .cornerRadius(20)
+                                }
+                                
+                                Button(action: {}) {
+                                    Image(systemName: "heart")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .foregroundColor(.brown)
+                                        .background(Color.white)
+                                }
                             }
                         }.padding()
                     }
