@@ -31,6 +31,19 @@ enum CategoriesIcons: String, CaseIterable {
 struct HomeView: View {
     @State var coffeeShopSearch: String = ""
     @State private var selectedCategory: Categories?
+
+    
+    var categoriesItems: [GridItem] {
+        let deviceWidth = UIScreen.main.bounds.width
+        var rowsInGrid = 1
+
+        if (deviceWidth.truncatingRemainder(dividingBy: 2) == 0) {
+            rowsInGrid = 1
+        } else {
+            rowsInGrid = 2
+        }
+        return Array(repeating: GridItem(.flexible(minimum: 100)), count: rowsInGrid)
+    }
     
     private func selectCategoryLabel(category: String) -> String {
         switch(category) {
@@ -85,7 +98,7 @@ struct HomeView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.brown, lineWidth: 2)
                 )
-            }.padding()
+            }
         }
     
     @ViewBuilder
@@ -177,18 +190,17 @@ struct HomeView: View {
                 .font(.title)
                 .padding(.leading)
 
-            LazyHGrid(rows: [
-                GridItem(.fixed(100)),
-                GridItem(.fixed(100))
-            ]) {
-                ForEach(Categories.allCases, id: \.rawValue) { category in
+            LazyHGrid(rows: categoriesItems, spacing: 20) {
+                ForEach(Categories.allCases, id: \.self) { category in
                         categoryButton(category: category)
                     }
-                }.padding()
+            }
+            .padding([.horizontal, .top], 15)
+            .padding(.leading)
             
             Text("Produtos")
                 .font(.title)
-                .padding(.leading)
+                .padding([.leading, .top])
             
             productsList()
         }
