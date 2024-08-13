@@ -163,17 +163,9 @@
 		BA0B51D02C6464A1000D4AB1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				BA0B51D12C6464AE000D4AB1 /* TabBar */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		BA0B51D12C6464AE000D4AB1 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
 				BA0B51D62C646B46000D4AB1 /* TabBar.swift */,
 			);
-			path = TabBar;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		BA8D00D52C65BEA800FC5715 /* Models */ = {

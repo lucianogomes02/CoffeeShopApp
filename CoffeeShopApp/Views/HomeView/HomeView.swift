@@ -33,11 +33,8 @@ struct HomeView: View {
                       .focused($isSearching)
                       .frame(width: 250, height: 30)
                       .padding(.trailing, 50)
-                      .onSubmit {
-                          print($coffeeShopSearch) // TODO alterar para pesquisar
-                      }
-                      
-                      if isSearching {
+
+                    if isSearching || !coffeeShopSearch.isEmpty {
                           Button(action: {
                               self.coffeeShopSearch = ""
                               self.isSearching = false
@@ -69,7 +66,7 @@ struct HomeView: View {
                 .font(.title)
                 .padding([.leading, .top])
             
-            ProductsHomeListView()
+            ProductsHomeListView(coffeeShopSearch: coffeeShopSearch)
         }
     }
 }

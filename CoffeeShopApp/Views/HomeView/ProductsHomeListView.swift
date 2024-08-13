@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ProductsHomeListView: View {
+    var coffeeShopSearch: String
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))]) {
-                ForEach(productsMock) { product in
+                ForEach(productsMock.filter {
+                    coffeeShopSearch.isEmpty || $0.name.contains(coffeeShopSearch)
+                }) { product in
                     HStack {
                         Image(product.image)
                             .resizable()
@@ -66,5 +70,5 @@ struct ProductsHomeListView: View {
 }
 
 #Preview {
-    ProductsHomeListView()
+    ProductsHomeListView(coffeeShopSearch: "")
 }
