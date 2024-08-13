@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var coffeeShopSearch: String = ""
+    @FocusState private var isSearching: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -27,10 +28,29 @@ struct HomeView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
                 .foregroundStyle(.brown)
-              TextField("Busque o que você procura...", text: $coffeeShopSearch)
-                .onSubmit {
-                    print($coffeeShopSearch) // TODO alterar
+                ZStack(alignment: .trailing) {
+                    TextField("Busque o que você procura...", text: $coffeeShopSearch)
+                      .focused($isSearching)
+                      .frame(width: 250, height: 30)
+                      .padding(.trailing, 50)
+                      .onSubmit {
+                          print($coffeeShopSearch) // TODO alterar para pesquisar
+                      }
+                      
+                      if isSearching {
+                          Button(action: {
+                              self.coffeeShopSearch = ""
+                              self.isSearching = false
+                          }) {
+                              Image(systemName: "xmark.circle.fill")
+                                  .foregroundColor(.brown)
+                                  .padding(.horizontal, 10)
+                                  .background(Color.white)
+                                  .imageScale(.large)
+                          }
+                      }
                 }
+              
             }
             .padding()
             .overlay(
