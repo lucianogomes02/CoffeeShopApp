@@ -104,7 +104,7 @@ struct HomeView: View {
     @ViewBuilder
     private func productsList() -> some View {
         ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: [GridItem(.fixed(100))]) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))]) {
                 ForEach(productsMock) { product in
                     HStack {
                         Image(product.image)
@@ -149,6 +149,7 @@ struct HomeView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.brown, lineWidth: 2)
                     )
+                    .padding(.top)
                 }
             }
         }
