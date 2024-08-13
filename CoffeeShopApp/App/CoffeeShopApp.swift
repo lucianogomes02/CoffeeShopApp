@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CoffeeShopApp: App {
+    @StateObject var categoryFilter = SelectedCategoryFilter()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(categoryFilter)
         }
     }
 }

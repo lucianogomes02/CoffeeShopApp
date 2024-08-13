@@ -21,9 +21,13 @@ enum CategoriesIcons: String, CaseIterable {
     case foodIcon = "fork.knife.circle.fill"
 }
 
+class SelectedCategoryFilter: ObservableObject {
+    @Published var filter: Categories? = nil
+}
+
 
 struct CategoriesView: View {
-    @State private var selectedCategory: Categories?
+    @EnvironmentObject var selectedCategory: SelectedCategoryFilter
 
     var categoriesItems: [GridItem] {
         let deviceWidth = UIScreen.main.bounds.width
@@ -67,24 +71,36 @@ struct CategoriesView: View {
             }
     }
     
+    private func selectCategory(category: Categories) -> Void {
+        if (selectedCategory.filter == nil) {
+            selectedCategory.filter = category
+        } else {
+            if (selectedCategory.filter == category) {
+                selectedCategory.filter = nil
+            } else {
+                selectedCategory.filter = category
+            }
+        }
+    }
+    
     @ViewBuilder
     private func categoryButton(category: Categories) -> some View {
             Button(action: {
-                selectedCategory = category
+                selectCategory(category: category)
             }) {
                 VStack {
                     Image(systemName: selectCategoryIcon(category: category.rawValue))
                         .resizable()
                         .frame(width: 25, height: 25)
-                        .foregroundColor(selectedCategory == category ? .white : .brown)
+                        .foregroundColor(selectedCategory.filter == category ? .white : .brown)
                     Text(selectCategoryLabel(category: category.rawValue))
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .foregroundStyle(selectedCategory == category ? .white : .brown)
+                        .foregroundStyle(selectedCategory.filter == category ? .white : .brown)
                 }
                 .frame(width: 150, height: 80)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(selectedCategory == category ? Color.brown : Color.white)
+                        .fill(selectedCategory.filter == category ? Color.brown : Color.white)
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)

@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct ProductsHomeListView: View {
+    @EnvironmentObject var categoryFilter: SelectedCategoryFilter
     var coffeeShopSearch: String
+    
+    private func filterProductsBySearch() -> [Product] {
+        return productsMock.filter {
+            coffeeShopSearch.isEmpty || $0.name.contains(coffeeShopSearch)
+        }
+    }
+    
+    private func filterProductsByCategory(_ products: [Product]) -> [Product] {
+        if (categoryFilter.filter != nil) {
+            return products.filter {
+                $0.category.rawValue == categoryFilter.filter?.rawValue
+            }
+        }
+        return products
+    }
+    
+    private func filterProducts() -> [Product] {
+        let productsFilteredOnSearch = filterProductsBySearch()
+        return filterProductsByCategory(productsFilteredOnSearch)
+    }
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))]) {
-                ForEach(productsMock.filter {
-                    coffeeShopSearch.isEmpty || $0.name.contains(coffeeShopSearch)
-                }) { product in
+                ForEach(filterProducts()) { product in
                     HStack {
                         Image(product.image)
                             .resizable()

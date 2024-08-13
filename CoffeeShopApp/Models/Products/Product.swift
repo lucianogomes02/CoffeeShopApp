@@ -18,5 +18,6 @@ struct Product: Identifiable {
     let name: String
     let image: String
     let description: String
+    let category: Categories
     let price: Double
 }
